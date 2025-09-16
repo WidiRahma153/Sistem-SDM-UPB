@@ -339,52 +339,51 @@ return [
             'url' => 'pendidikan',
             'icon' => 'fas fa-graduation-cap',
         ],
-        [
-            'text' => 'Riwayat Sertifikat',
-            'url' => 'sertifikat',
-            'icon' => 'fas fa-certificate',
-        ],
-        [
-            'text' => 'Riwayat Penghargaan',
-            'url' => 'penghargaan',
-            'icon' => 'fas fa-award',
-        ],
-        [
-            'text' => 'Riwayat Cuti',
-            'url' => 'cuti',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text' => 'Riwayat Sertifikat',
+        //     'url' => 'sertifikat',
+        //     'icon' => 'fas fa-certificate',
+        // ],
+        // [
+        //     'text' => 'Riwayat Penghargaan',
+        //     'url' => 'penghargaan',
+        //     'icon' => 'fas fa-award',
+        // ],
+        // [
+        //     'text' => 'Riwayat Cuti',
+        //     'url' => 'cuti',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
             'text' => 'Riwayat Pelatihan',
             'url' => 'pelatihan',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => '',
         ],
-        [
-            'text' => 'Riwayat Hukuman',
-            'url' => 'hukuman',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Jabatan Fungsional',
-            'url' => 'jabatan-fungsional',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Jabatan Struktural',
-            'url' => 'jabatan-struktural',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'SKP',
-            'url' => 'skp',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text' => 'Riwayat Hukuman',
+        //     'url' => 'hukuman',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text' => 'Jabatan Fungsional',
+        //     'url' => 'jabatan-fungsional',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text' => 'Jabatan Struktural',
+        //     'url' => 'jabatan-struktural',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text' => 'SKP',
+        //     'url' => 'skp',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
             'text' => 'Keluarga',
             'url' => 'keluarga',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-people-roof',
         ],
-        
         // [
         //     'text' => 'multileve',
         //     'icon' => 'fas fa-fw fa-share',

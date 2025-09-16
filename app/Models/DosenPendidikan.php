@@ -17,6 +17,10 @@ class DosenPendidikan extends Model
     {
         return $this->belongsTo(Dosen::class, 'id_dosen');
     }
+    public function jenjang()
+    {
+        return $this->belongsTo(Jenjang::class, 'id_jenjang');
+    }
 }
 
 

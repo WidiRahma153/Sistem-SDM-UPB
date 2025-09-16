@@ -26,8 +26,14 @@
 
             <div class="form-group">
                 <label for="id_jenjang">Jenjang</label>
-                <input type="number" name="id_jenjang" class="form-control" 
-                       value="{{ old('id_jenjang', $pendidikan->id_jenjang) }}" required>
+                <select name="id_jenjang" id="id_jenjang" class="form-control" required>
+                    <option value="">-- Pilih Jenjang --</option>
+                    @foreach($jenjang as $j)
+                        <option value="{{ $j->id }}" {{ $pendidikan->id_jenjang == $j->id ? 'selected' : '' }}>
+                            {{ $j->nama_jenjang }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
@@ -42,6 +48,16 @@
                        value="{{ old('nama_sekolah', $pendidikan->nama_sekolah) }}" required>
             </div>
 
+             <div class="form-group">
+                <label for="ipk">IPK</label>
+                <input type="text" name="ipk" value="{{ $pendidikan->ipk }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="tgl_mulai">Tanggal Mulai</label>
+                <input type="date" name="tgl_mulai" value="{{ $pendidikan->tgl_mulai }}" class="form-control">
+            </div>
+
             <div class="form-group">
                 <label for="tgl_lulus">Tanggal Lulus</label>
                 <input type="date" name="tgl_lulus" class="form-control" 
@@ -51,7 +67,17 @@
             <div class="form-group">
                 <label for="gelar">Gelar</label>
                 <input type="text" name="gelar" class="form-control" 
-                       value="{{ old('gelar', $pendidikan->gelar) }}">
+                       value="{{ old('gelar', $pendidikan->gelar) }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="link_ijazah_transkip">Link Ijazah & Transkip</label>
+                <input type="text" name="link_ijazah_transkip" value="{{ $pendidikan->link_ijazah_transkip }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="ket_ijazah_transkip">Keterangan Ijazah & Transkip</label>
+                <textarea name="ket_ijazah_transkip" class="form-control" rows="3">{{ $pendidikan->ket_ijazah_transkip }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan</button>

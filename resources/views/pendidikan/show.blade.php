@@ -16,7 +16,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Sekolah</th>
+                    <th>Jenjang</th>
+                    <th>Nama Instansi</th>
                     <th>Jurusan</th>
                     <th>Tanggal Lulus</th>
                     <th>Gelar</th>
@@ -27,6 +28,7 @@
                 @forelse ($pendidikan as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $p->nama_jenjang }}</td>
                     <td>{{ $p->nama_sekolah }}</td>
                     <td>{{ $p->jurusan }}</td>
                     <td>{{ $p->tgl_lulus }}</td>

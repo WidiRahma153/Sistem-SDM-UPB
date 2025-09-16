@@ -11,10 +11,15 @@
       @csrf
       <input type="hidden" name="id_dosen" value="{{ $dosen->id }}">
 
-      <div class="mb-3">
-        <label>Jenjang</label>
-        <input type="text" name="jenjang" class="form-control" required>
-      </div>
+      <div class="form-group">
+        <label for="id_jenjang">Jenjang</label>
+        <select name="id_jenjang" id="id_jenjang" class="form-control" required>
+            <option value="">-- Pilih Jenjang --</option>
+            @foreach($jenjang as $j)
+                <option value="{{ $j->id }}">{{ $j->nama_jenjang }}</option>
+            @endforeach
+        </select>
+    </div>
       <div class="mb-3">
         <label>Jurusan</label>
         <input type="text" name="jurusan" class="form-control" required>

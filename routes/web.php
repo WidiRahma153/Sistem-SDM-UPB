@@ -50,15 +50,37 @@ Route::middleware('auth')->group(function () {
     Route::put('/pendidikan/{id}', [PendidikanController::class, 'update'])->name('pendidikan.update');
     Route::delete('/pendidikan/{id}', [PendidikanController::class, 'destroy'])->name('pendidikan.destroy');
 
-    Route::resource('sertifikat', SertifikatController::class);
+    // Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat.index');
+    // Route::get('/sertifikat/{id_dosen}', [SertifikatController::class, 'show'])->name('sertifikat.show');
+    // Route::get('/sertifikat/{id_dosen}/create', [SertifikatController::class, 'create'])->name('sertifikat.create');
+    // Route::post('/sertifikat', [SertifikatController::class, 'store'])->name('sertifikat.store');
+    // Route::get('/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('sertifikat.edit');
+    // Route::put('/sertifikat/{id}', [SertifikatController::class, 'update'])->name('sertifikat.update');
+    // Route::delete('/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
+
+    Route::get('/pelatihan', [PelatihanController::class, 'index'])->name('pelatihan.index');
+    Route::get('/pelatihan/{id_dosen}', [PelatihanController::class, 'show'])->name('pelatihan.show');
+    Route::get('/pelatihan/{id_dosen}/create', [PelatihanController::class, 'create'])->name('pelatihan.create');
+    Route::post('/pelatihan', [PelatihanController::class, 'store'])->name('pelatihan.store');
+    Route::get('/pelatihan/{id}/edit', [PelatihanController::class, 'edit'])->name('pelatihan.edit');
+    Route::put('/pelatihan/{id}', [PelatihanController::class, 'update'])->name('pelatihan.update');
+    Route::delete('/pelatihan/{id}', [PelatihanController::class, 'destroy'])->name('pelatihan.destroy');
+    
+    Route::get('/keluarga', [KeluargaController::class, 'index'])->name('keluarga.index');
+    Route::get('/keluarga/{id_dosen}', [KeluargaController::class, 'show'])->name('keluarga.show');
+    Route::get('/keluarga/{id_dosen}/create', [KeluargaController::class, 'create'])->name('keluarga.create');
+    Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store');
+    Route::get('/keluarga/{id}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
+    Route::put('/keluarga/{id}', [KeluargaController::class, 'update'])->name('keluarga.update');
+    Route::delete('/keluarga/{id}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
+
     Route::resource('penghargaan', PenghargaanController::class);
     Route::resource('cuti', CutiController::class);
-    Route::resource('pelatihan', PelatihanController::class);
     Route::resource('hukuman', HukumanController::class);
     Route::resource('jabatan-fungsional', JabatanFungsionalController::class);
     Route::resource('jabatan-struktural', JabatanStrukturalController::class);
     Route::resource('skp', SkpController::class);
-    Route::resource('keluarga', KeluargaController::class);
+    // Route::resource('keluarga', KeluargaController::class);
 });
 
 Route::middleware(['auth'])->group(function () {

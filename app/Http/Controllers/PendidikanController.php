@@ -33,19 +33,21 @@ class PendidikanController extends Controller
     public function show($id_dosen)
     {
         // Detail pendidikan per dosen
-        $pendidikan = DB::table('ms_dosen as m')
-            ->leftJoin('ms_dosen_pendidikan as dp', 'dp.id_dosen', '=', 'm.id')
-            ->select(
-                'm.id as id_dosen',
-                'm.nama as nama_dosen',
-                'dp.id',
-                'dp.jurusan',
-                'dp.nama_sekolah',
-                'dp.tgl_lulus',
-                'dp.gelar'
-            )
-            ->where('m.id', $id_dosen)
-            ->get();
+        $pendidikan = DB::table('ms_dosen_pendidikan as dp')
+                    ->leftJoin('ms_dosen as m', 'm.id', '=', 'dp.id_dosen')
+                    ->leftJoin('ms_jenjang as j', 'j.id', '=', 'dp.id_jenjang')
+                    ->select(
+                        'dp.id',
+                        'dp.jurusan',
+                        'dp.nama_sekolah',
+                        'dp.tgl_lulus',
+                        'dp.gelar',
+                        'j.nama_jenjang',
+                        'm.id as id_dosen',
+                        'm.nama as nama_dosen'
+                    )
+                    ->where('m.id', $id_dosen)
+                    ->get();
 
         // Data dosen (untuk header di show.blade)
         $dosenData = DB::table('ms_dosen')->where('id', $id_dosen)->first();
@@ -58,15 +60,16 @@ class PendidikanController extends Controller
 
     public function create($id_dosen)
     {
-        $dosen = DB::table('ms_dosen')->where('id', $id_dosen)->first();
-        return view('pendidikan.create', compact('dosen'));
+        $dosen = Dosen::findOrFail($id_dosen);
+        $jenjang = DB::table('ms_jenjang')->get();
+        return view('pendidikan.create', compact('dosen', 'jenjang'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'id_dosen'     => 'required|integer|exists:ms_dosen,id',
-            'id_jenjang'   => 'required|integer',
+            'id_jenjang' => 'required|exists:ms_jenjang,id',
             'jurusan'      => 'required|string|max:100',
             'nama_sekolah' => 'required|string|max:100',
             'tgl_lulus'    => 'required|date',
@@ -82,7 +85,8 @@ class PendidikanController extends Controller
     public function edit($id)
     {
         $pendidikan = DosenPendidikan::findOrFail($id);
-    return view('pendidikan.edit', compact('pendidikan'));
+        $jenjang = DB::table('ms_jenjang')->get();
+        return view('pendidikan.edit', compact('pendidikan', 'jenjang'));
     }
 
     public function update(Request $request, $id)
@@ -91,8 +95,12 @@ class PendidikanController extends Controller
             'id_jenjang'   => 'required|integer',
             'jurusan'      => 'required|string|max:100',
             'nama_sekolah' => 'required|string|max:100',
+            'tgl_mulai'    => 'required|date',
             'tgl_lulus'    => 'required|date',
             'gelar'        => 'nullable|string|max:50',
+            'ipk' => 'nullable|numeric',
+            'link_ijazah_transkip' => 'nullable|string',
+            'ket_ijazah_transkip' => 'nullable|string',
         ]);
 
         $pendidikan = DosenPendidikan::findOrFail($id);
