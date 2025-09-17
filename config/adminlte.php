@@ -357,7 +357,7 @@ return [
         [
             'text' => 'Riwayat Pelatihan',
             'url' => 'pelatihan',
-            'icon' => '',
+            'icon' => 'fas fa-chalkboard-teacher',
         ],
         // [
         //     'text' => 'Riwayat Hukuman',
@@ -382,7 +382,7 @@ return [
         [
             'text' => 'Keluarga',
             'url' => 'keluarga',
-            'icon' => 'fas fa-people-roof',
+            'icon' => 'fas fa-angle-right',
         ],
         // [
         //     'text' => 'multileve',
